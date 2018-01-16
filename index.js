@@ -24,7 +24,7 @@ module.exports = class FileManager {
         return Promise.all(files.map((file) => {
           return this.api.files.stat(join(root, file.Name))
             .then((stats) => {
-              return {...file, ...stats}
+              return Object.assign({}, file, stats)
             })
         }))
       })
