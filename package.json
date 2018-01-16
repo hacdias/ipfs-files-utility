@@ -1,0 +1,38 @@
+{
+  "name": "ipfs-files-utility",
+  "version": "1.0.0",
+  "description": "Simply manage your IPFS files.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hacdias/ipfs-files-utility.git"
+  },
+  "keywords": [
+    "ipfs",
+    "files",
+    "manage",
+    "decentralized",
+    "web",
+    "hashing"
+  ],
+  "pre-commit": [
+    "lint"
+  ],
+  "author": "Henrique Dias <hacdias@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hacdias/ipfs-files-utility/issues"
+  },
+  "homepage": "https://github.com/hacdias/ipfs-files-utility#readme",
+  "devDependencies": {
+    "pre-commit": "^1.2.2",
+    "standard": "^10.0.3"
+  },
+  "dependencies": {
+    "bl": "^1.2.1",
+    "lodash.sortby": "^4.7.0"
+  }
+}
