@@ -1,4 +1,3 @@
-const sortBy = require('lodash.sortby')
 const join = require('path').join
 const bl = require('bl')
 
@@ -11,6 +10,18 @@ function collect (stream) {
   })
 }
 
+function sort (a, b) {
+  if (a.Type === 'directory' && b.Type !== 'directory') {
+    return -1
+  }
+
+  if (b.Type === 'directory' && a.Type !== 'directory') {
+    return 1
+  }
+
+  return a.Name > b.Name
+}
+
 module.exports = class FileManager {
   constructor (api) {
     this.api = api
@@ -19,14 +30,14 @@ module.exports = class FileManager {
   list (root) {
     return this.api.files.ls(root)
       .then((res) => {
-        const files = sortBy(res.Entries, 'Name') || []
+        const files = res.Entries || []
 
         return Promise.all(files.map((file) => {
           return this.api.files.stat(join(root, file.Name))
             .then((stats) => {
               return Object.assign({}, file, stats)
             })
-        }))
+        })).then((res) => res.sort(sort))
       })
   }
 

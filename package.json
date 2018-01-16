@@ -1,6 +1,6 @@
 {
   "name": "ipfs-files-utility",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Simply manage your IPFS files.",
   "main": "index.js",
   "scripts": {
@@ -32,7 +32,6 @@
     "standard": "^10.0.3"
   },
   "dependencies": {
-    "bl": "^1.2.1",
-    "lodash.sortby": "^4.7.0"
+    "bl": "^1.2.1"
   }
 }
