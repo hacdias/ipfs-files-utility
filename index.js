@@ -33,7 +33,7 @@ module.exports = class FileManager {
         const files = res.Entries || []
 
         return Promise.all(files.map((file) => {
-          return this.api.files.stat(join(root, file.Name))
+          return this.api.files.stat([root, file.Name].join('/'))
             .then((stats) => {
               return Object.assign({}, file, stats)
             })
